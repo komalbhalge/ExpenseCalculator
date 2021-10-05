@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_nav_menu" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/addFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="@dimen/fab_margin"
+            android:textColor="@color/white"
+            app:icon="@android:drawable/ic_input_add"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addExpenseFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/red"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"
+            app:backgroundTint="@color/red"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@+id/addFab"
+            app:layout_constraintEnd_toEndOf="@+id/addFab"
+            app:srcCompat="@android:drawable/ic_input_add" />
+        <!--Action name text for the add alarm button-->
+        <TextView
+            android:id="@+id/addExpenseText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@color/purple_500"
+            android:padding="5dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="Add Expense"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/addExpenseFab"
+            app:layout_constraintEnd_toStartOf="@+id/addExpenseFab"
+            app:layout_constraintTop_toTopOf="@+id/addExpenseFab" />
+        <!--Floating action button for add person-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addIncomefab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:backgroundTint="@color/green"
+            android:contentDescription="@string/app_name"
+            android:visibility="gone"
+            app:backgroundTint="@color/green"
+            app:fabSize="mini"
+            app:layout_constraintBottom_toTopOf="@+id/addExpenseFab"
+            app:layout_constraintEnd_toEndOf="@+id/addExpenseFab"
+            app:layout_constraintStart_toStartOf="@+id/addExpenseFab"
+            app:srcCompat="@android:drawable/ic_input_add" />
+        <!--Action name text for the add person button-->
+        <TextView
+            android:id="@+id/addIncometext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:background="@color/purple_500"
+            android:padding="7dp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:text="Add Income"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/addIncomefab"
+            app:layout_constraintEnd_toStartOf="@+id/addIncomefab"
+            app:layout_constraintTop_toTopOf="@+id/addIncomefab" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <fragment
+        android:id="@+id/nav_host_fragment_activity_main"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@id/nav_view"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/mobile_navigation" />
+
+    <LinearLayout
+        android:id="@+id/addIncomeExpenseLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/date_year_height"
+        android:orientation="horizontal"
+        android:padding="@dimen/small_margin"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <android.widget.Button
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/button_gradient"
+            android:inputType="none"
+            android:paddingStart="@dimen/large_margin"
+            android:paddingTop="@dimen/standard_margin"
+            android:paddingEnd="@dimen/large_margin"
+            android:paddingBottom="@dimen/standard_margin"
+            android:text="Select date"
+            android:textColor="@color/white" />
+
+        <EditText
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/smallest_margin"
+            android:background="@drawable/button_gradient"
+            android:inputType="number"
+            android:paddingLeft="@dimen/small_margin"
+            android:paddingTop="@dimen/standard_margin"
+            android:paddingRight="@dimen/small_margin"
+            android:paddingBottom="@dimen/standard_margin"
+            android:text="0"
+            android:textColor="@color/white" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

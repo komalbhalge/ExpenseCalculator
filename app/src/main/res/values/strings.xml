@@ -1,0 +1,60 @@
+<resources>
+    <string name="app_name">IncomeExpenseApp</string>
+    <string name="title_home">Home</string>
+    <string name="title_expenses">Expenses</string>
+    <string name="title_incomes">Incomes</string>
+
+    <!-- Home -->
+    <string name="filter_title">Filter by</string>
+    <string name="overview_title">Overview</string>
+    <string name="select_hint">Select</string>
+    <string name="select_date_hint">Select date</string>
+    <string name="select_month_hint">Select month</string>
+    <string name="select_year_hint">Select year</string>
+    <string name="select_day_year">Select</string>
+
+
+    <!-- dropdown filters-->
+    <string-array name="filters">
+        <item>Date</item>
+        <item>Month</item>
+        <item>Year</item>
+    </string-array>
+
+    <!-- Month filters-->
+    <string-array name="months">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array>
+
+
+    <!-- Year filters-->
+    <string-array name="years">
+        <item>2021</item>
+        <item>2020</item>
+        <item>2019</item>
+        <item>2018</item>
+        <item>2017</item>
+        <item>2016</item>
+        <item>2015</item>
+    </string-array>
+
+    <!-- UI message -->
+    <string name="empty_overview">Please add Income-Expense entries</string>
+    <string name="message_empty_data">Date and amount can not be empty</string>
+    <string name="message_income_added">Income added successfully!</string>
+    <string name="message_expense_added">Expense added successfully!</string>
+
+    <string name="quote1">Beware of little expenses. A small leak will sink a great ship.</string>
+    <string name="quote2"> -Benjamin Franklin</string>
+</resources>

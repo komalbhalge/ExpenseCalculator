@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/standard_margin"
+    tools:context=".ui.home.HomeFragment">
+
+    <TextView
+        android:id="@+id/filterByTitle"
+        style="@style/TextAppearance_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:text="@string/filter_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/dropdownLayout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dropdown_layout_height"
+        android:layout_marginTop="@dimen/standard_margin"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/filterByTitle">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/typeFilter"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.9"
+            android:gravity="center">
+
+            <AutoCompleteTextView
+                android:id="@+id/filterDropdown"
+                style="@style/TextAppearance_Dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.8"
+                android:inputType="none"
+                android:text="Month" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <android.widget.Button
+            android:id="@+id/btnSelectDayYear"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/standard_margin"
+            android:layout_weight="1"
+            android:background="@drawable/button_gradient"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/select_day_year"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/monthFilter"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/smallest_margin"
+            android:layout_weight="1.2"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <AutoCompleteTextView
+                android:id="@+id/monthDropdown"
+                style="@style/TextAppearance_Dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:text="Month" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/yearFilter"
+            style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/smallest_margin"
+            android:layout_weight="0.8"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <AutoCompleteTextView
+                android:id="@+id/yearDropdown"
+                style="@style/TextAppearance_Dropdown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:inputType="none"
+                android:text="Year" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
+
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:id="@+id/pieChart"
+        android:layout_width="@dimen/pie_chart_height_width"
+        android:layout_height="@dimen/pie_chart_height_width"
+        android:layout_marginTop="@dimen/large_margin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dropdownLayout" />
+
+
+    <TextView
+        android:id="@+id/tvExpensesTitle"
+        style="@style/TextAppearance_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:text="@string/title_expenses"
+        app:layout_constraintLeft_toRightOf="@+id/pieChart"
+        app:layout_constraintTop_toTopOf="@+id/pieChart" />
+
+    <TextView
+        android:id="@+id/tvExpenseAmount"
+        style="@style/TextAppearance_Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-$0"
+        app:layout_constraintLeft_toLeftOf="@id/tvExpensesTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvExpensesTitle" />
+
+    <TextView
+        android:id="@+id/tvIncomeTitle"
+        style="@style/TextAppearance_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        android:text="@string/title_incomes"
+        app:layout_constraintLeft_toLeftOf="@id/tvExpensesTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvExpenseAmount" />
+
+    <TextView
+        android:id="@+id/tvIncomeAmount"
+        style="@style/TextAppearance_Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="+$0"
+        app:layout_constraintLeft_toLeftOf="@id/tvExpensesTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvIncomeTitle" />
+
+    <TextView
+        android:id="@+id/tvOverviewTitle"
+        style="@style/TextAppearance_Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/large_margin"
+        android:text="@string/overview_title"
+        app:layout_constraintLeft_toLeftOf="@id/tvExpensesTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvIncomeAmount" />
+
+    <TextView
+        android:id="@+id/tvOverviewAmount"
+        style="@style/TextAppearance_Subtitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="$0"
+        app:layout_constraintLeft_toLeftOf="@id/tvExpensesTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvOverviewTitle" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="@dimen/large_margin"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pieChart" />
+
+    <TextView
+        android:id="@+id/quote"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/large_margin"
+        android:fontFamily="@font/aramisi"
+        android:gravity="center"
+        android:text="@string/quote1"
+        android:textSize="@dimen/text_size_h1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/divider" />
+</androidx.constraintlayout.widget.ConstraintLayout>
